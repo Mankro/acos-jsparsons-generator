@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Js-parsons Problem Generator</title>
+  </head>
+  <body>
+    <h1>Js-parsons Problem Generator</h1>
+    <p>
+      Generates Acos compatible js-parsons json-formatted problem descriptions from given input. 
+      The resulting page will give a JSON-reprsesentation of the exercise that can be hosted 
+      anywhere and linked to JSON. Additionally, a direct URL will be given that can be used
+      to test and access the exercise.
+    </p>
+    <form action="#" method="POST">
+      <p><label for="name">Name</label></p>
+      <input type="text" name="name" id="name" size="80">
+      <p><label for="description">Description of the problem</label></p>
+      <input type="text" name="description" id="description" size="80">
+      <p><label for="instructions">Instructions for the problem</label></p>
+      <textarea name="instructions" id="instructions" cols="80" rows="5"></textarea>
+      <p><label for="initial">Code for the problem</label></p>
+      <textarea name="initial" id="initial" cols="80" rows="20"></textarea>    
+      <p>
+          <input type="submit" value="Generate"/>
+      </p>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "name": "acos-jsparsons-generator",
+  "version": "0.1.0",
+  "description": "Acos tool to generate JSON-formatted Js-parsons problems",
+  "main": "index.js",
+  "author": "Lassi Haaranen",
+  "license": "MIT",
+  "dependencies": {
+    "fs": "^0.0.2",
+    "nunjucks": "^1.2.0"
+  }
+}
