@@ -5,6 +5,10 @@
   "main": "index.js",
   "author": "Lassi Haaranen",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/acos-server/acos-jsparsons-generator"
+  },      
   "dependencies": {
     "fs": "^0.0.2",
     "nunjucks": "^1.2.0"
