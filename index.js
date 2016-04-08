@@ -55,4 +55,6 @@ jsparsonsGenerator.meta = {
 };
 
 jsparsonsGenerator.namespace = 'jsparsons-generator';
+jsparsonsGenerator.packageType = 'tool';
+
 module.exports = jsparsonsGenerator;
