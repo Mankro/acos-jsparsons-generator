@@ -8,24 +8,21 @@ var nj = require('nunjucks');
 
 jsparsonsGenerator.register = function(handlers, app, config) {
     var CONFIG = config;
-
-
+    var templateDir = __dirname + '/templates/';
+    var njEnv = nj.configure(templateDir, { autoescape: false });
 
     handlers.tools['jsparsons-generator'] = jsparsonsGenerator;
     
     app.get('/jsparsons-generator', function(req, res) {
-        var templateDir = __dirname + '/templates/';
-        nj.configure(templateDir, { autoescape: false });  
         res.set('Content-Type', 'text/html');
-        res.send(nj.render('form.html'));
-
+        res.send(njEnv.render('form.html'));
     });
     
     app.post('/jsparsons-generator', function(req, res) {
         var params = req.body;
-        var initial =  params.initial.replace(/(?:\r\n|\r|\n)/g, '\\n');
-        initial =  initial.replace(/\'/g, "\"");
-        initial =  initial.replace(/\"/g, '\\"');
+        var initial = params.initial.replace(/(?:\r\n|\r|\n)/g, '\\n');
+        initial = initial.replace(/\'/g, "\"");
+        initial = initial.replace(/\"/g, '\\"');
 
         var description = params.description || 'No description given.';
         var instructions = params.instructions || 'No instructions given.';
@@ -39,7 +36,7 @@ jsparsonsGenerator.register = function(handlers, app, config) {
         url += '&description=' + encodeURIComponent(description);
 
         res.set('Content-Type', 'text/html');
-        res.send(nj.render('submitted.html', {'url': url, 'description': description, 'initial': initial, 'serverAddress': CONFIG.serverAddress, 'name': name, 'instructions': instructions}));
+        res.send(njEnv.render('submitted.html', {'url': url, 'description': description, 'initial': initial, 'serverAddress': CONFIG.serverAddress, 'name': name, 'instructions': instructions}));
     });
     
 };
